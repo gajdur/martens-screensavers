@@ -78,6 +78,12 @@
 				"en": "Rain-like animation",
 				"nl": "Regenachtige animatie"
 			}
+		},
+		{
+			"name": "bad_homey",
+			"title": {
+				"en": "Bad Homey Face",
+			}
 		}
 	],
 	"permissions": [
