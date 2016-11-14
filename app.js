@@ -479,3 +479,64 @@ animation_bad_homey.register(function(err, result){
 	})
 })
 //-------------------Bad Homey Animation Stop ---------------------------------------------------
+//-------------------Nice Homey Animation Start ---------------------------------------------------
+var frames_nice_homey = [];
+var frame_nice_homey = [];
+
+
+// for every pixel...
+for( var pixel = 0; pixel < 24; pixel++ ) {
+	if( pixel == 1) {
+		frame_nice_homey.push({
+			r: 0,	g: 50,	b: 20
+		});
+	} 
+	else if( pixel == 2) {
+		frame_nice_homey.push({
+			r: 0,	g: 25,	b: 15
+		});
+	}
+	else if( pixel == 16) {
+		frame_nice_homey.push({
+			r: 0,	g: 25,	b: 15
+		});
+	}
+	else if( pixel == 17) {
+		frame_nice_homey.push({
+			r: 0,	g: 50,	b: 20
+		});
+	}
+	else if( pixel == 21) {
+		frame_nice_homey.push({
+			r: 0,	g: 50,	b: 20
+		});
+	}
+	else {
+		frame_nice_homey.push({
+			r: 0, g: 0, b: 0
+		})
+	}
+}
+frames_nice_homey.push(frame_nice_homey);
+
+var animation_nice_homey = new Animation({
+	
+    options: {
+        fps     : 1, 	// real frames per second
+        tfps    : 60, 	// target frames per second. this means that every frame will be interpolated 60 times
+        rpm     : 0,	// rotations per minute
+    },
+    frames    : frames_nice_homey
+})
+
+animation_nice_homey.register(function(err, result){
+	Homey.manager('ledring').registerScreensaver('nice_homey', animation_nice_homey)
+	if( err ) return Homey.error(err);
+	animation_nice_homey.on('screensaver_start', function( screensaver_id ){
+		Homey.log('Screensaver started')
+	})
+	animation_nice_homey.on('screensaver_stop', function( screensaver_id ){
+		Homey.log('Screensaver stopped')
+	})
+})
+//-------------------Nice Homey Animation Stop ---------------------------------------------------
