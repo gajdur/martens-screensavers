@@ -419,36 +419,31 @@ animation_full_white.register(function(err, result){
 })
 //-------------------Full White Animation Stop ---------------------------------------------------
 //-------------------Bad Homey Animation Start ---------------------------------------------------
-var frames_full_white = [];
-var frame_full_white = [];
+var frames_bad_homey = [];
+var frame_bad_homey = [];
 
 // for every pixel...
 for( var pixel = 0; pixel < 24; pixel++ ) {	
 		{
-		frame_full_white.push({
-			r: 10, g: 10, b: 10
+		frame_bad_homey.push({
+			r: 255, g: 0, b: 0
 		})
 	}
 }
-frames_full_white.push(frame_full_white);
+frames_bad_homey.push(frame_bad_homey);
 
-var animation_full_white = new Animation({
-	
-    options: {
-        fps     : 1, 	// real frames per second
-        tfps    : 60, 	// target frames per second. this means that every frame will be interpolated 60 times
-        rpm     : 0,	// rotations per minute
-    },
-    frames    : frames_full_white
+var animation_bad_homey = new Animation({
+
+    frames    : frames_bad_homey
 })
 
-animation_full_white.register(function(err, result){
-	Homey.manager('ledring').registerScreensaver('full_white', animation_full_white)
+animation_bad_homey.register(function(err, result){
+	Homey.manager('ledring').registerScreensaver('bad_homey', animation_bad_homey)
 	if( err ) return Homey.error(err);
-	animation_full_white.on('screensaver_start', function( screensaver_id ){
+	animation_bad_homey.on('screensaver_start', function( screensaver_id ){
 		Homey.log('Screensaver started')
 	})
-	animation_full_white.on('screensaver_stop', function( screensaver_id ){
+	animation_bad_homey.on('screensaver_stop', function( screensaver_id ){
 		Homey.log('Screensaver stopped')
 	})
 })
