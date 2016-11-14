@@ -418,3 +418,38 @@ animation_full_white.register(function(err, result){
 	})
 })
 //-------------------Full White Animation Stop ---------------------------------------------------
+//-------------------Bad Homey Animation Start ---------------------------------------------------
+var frames_full_white = [];
+var frame_full_white = [];
+
+// for every pixel...
+for( var pixel = 0; pixel < 24; pixel++ ) {	
+		{
+		frame_full_white.push({
+			r: 10, g: 10, b: 10
+		})
+	}
+}
+frames_full_white.push(frame_full_white);
+
+var animation_full_white = new Animation({
+	
+    options: {
+        fps     : 1, 	// real frames per second
+        tfps    : 60, 	// target frames per second. this means that every frame will be interpolated 60 times
+        rpm     : 0,	// rotations per minute
+    },
+    frames    : frames_full_white
+})
+
+animation_full_white.register(function(err, result){
+	Homey.manager('ledring').registerScreensaver('full_white', animation_full_white)
+	if( err ) return Homey.error(err);
+	animation_full_white.on('screensaver_start', function( screensaver_id ){
+		Homey.log('Screensaver started')
+	})
+	animation_full_white.on('screensaver_stop', function( screensaver_id ){
+		Homey.log('Screensaver stopped')
+	})
+})
+//-------------------Bad Homey Animation Stop ---------------------------------------------------
