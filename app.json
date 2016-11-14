@@ -82,7 +82,13 @@
 		{
 			"name": "bad_homey",
 			"title": {
-				"en": "Bad Homey Face",
+				"en": "Bad Homey Face"
+			}
+		},
+		{
+			"name": "nice_homey",
+			"title": {
+				"en": "Nice Homey Face"
 			}
 		}
 	],
