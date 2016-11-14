@@ -430,6 +430,16 @@ for( var pixel = 0; pixel < 24; pixel++ ) {
 			r: 0,	g: 0,	b: 0
 		});
 	} 
+	if( pixel = 2) {
+		frame_bad_homey.push({
+			r: 255,	g: 0,	b: 0
+		});
+	} 
+	if( pixel = 12) {
+		frame_bad_homey.push({
+			r: 255,	g: 0,	b: 0
+		});
+	} 
 	else {
 		frame_bad_homey.push({
 			r: 0, g: 0, b: 0
