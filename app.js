@@ -425,21 +425,31 @@ var frame_bad_homey = [];
 
 // for every pixel...
 for( var pixel = 0; pixel < 24; pixel++ ) {
-	if( pixel = 1) {
+	if( pixel == 1) {
 		frame_bad_homey.push({
-			r: 0,	g: 0,	b: 0
+			r: 20,	g: 0,	b: 0
 		});
 	} 
-	if( pixel = 2) {
+	else if( pixel == 2) {
 		frame_bad_homey.push({
-			r: 255,	g: 0,	b: 0
+			r: 10,	g: 0,	b: 0
 		});
-	} 
-	if( pixel = 12) {
+	}
+	else if( pixel == 16) {
 		frame_bad_homey.push({
-			r: 255,	g: 0,	b: 0
+			r: 10,	g: 0,	b: 0
 		});
-	} 
+	}
+	else if( pixel == 17) {
+		frame_bad_homey.push({
+			r: 20,	g: 0,	b: 0
+		});
+	}
+	else if( pixel == 21) {
+		frame_bad_homey.push({
+			r: 20,	g: 0,	b: 0
+		});
+	}
 	else {
 		frame_bad_homey.push({
 			r: 0, g: 0, b: 0
@@ -451,8 +461,8 @@ frames_bad_homey.push(frame_bad_homey);
 var animation_bad_homey = new Animation({
 	
     options: {
-        fps     : 0, 	// real frames per second
-        tfps    : 0, 	// target frames per second. this means that every frame will be interpolated 60 times
+        fps     : 1, 	// real frames per second
+        tfps    : 60, 	// target frames per second. this means that every frame will be interpolated 60 times
         rpm     : 0,	// rotations per minute
     },
     frames    : frames_bad_homey
